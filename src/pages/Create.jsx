@@ -18,7 +18,7 @@ const Create = () => {
       alert("Please fill out all details")
       return;
     }
-    console.log("User input being sent: ", userInput);
+ 
 
     let imageURL = "";
 
@@ -26,9 +26,9 @@ const Create = () => {
   
       const timestamp = Date.now();
       const uniqueFileName = `${timestamp}_${userImage.name}`;
-      console.log("Generated filename:", uniqueFileName);
+    
 
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from('images')
         .upload(uniqueFileName, userImage);
 
@@ -37,15 +37,19 @@ const Create = () => {
         alert(`Image upload failed: ${error.message}`);
         return;
       }
-      console.log("Upload successful! Image data:", data);
+    
 
       const { data: urlData } = supabase.storage
         .from('images')
         .getPublicUrl(uniqueFileName);
       
-      console.log("Generated URL:", urlData.publicUrl);
+     
       imageURL = urlData.publicUrl;
     }
+
+
+
+    
     try {
       const { data, error } = await supabase
         .from('posts')

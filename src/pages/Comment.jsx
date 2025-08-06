@@ -169,11 +169,11 @@ const Comment = () => {
       <p className='text-black text-[1.2rem] font-normal'>
         {new Date(post.created_at).toLocaleDateString()}
       </p>
-      <p className='mt-7 text-2xl ' >{post.details}</p>
+      <p className='mt-3 text-2xl ' >{post.details}</p>
       {post.image_url && typeof post.image_url === 'string' && post.image_url.trim() !== "" && (
         <>
           {console.log("Image URL being used:", post.image_url)}
-          <img className='w-[500px]' src={post.image_url} alt="A posted image" />
+          <img className='w-[400px] h-[400px] object-cover mt-3 ' src={post.image_url} alt="A posted image" />
         </>
       )}
       <div className='w-[962px] flex items-center justify-end' >
