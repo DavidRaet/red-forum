@@ -27,7 +27,7 @@ const PostCard = ( { title, details, date, likeCount, isLiked, comments, id, han
         <Link to={`/comment/${id}`}><div className='h-[50px] w-[50px] mt-2 bg-[url("/images/comment.png")] hover:bg-[url("/images/comment-hover.png")] '></div></Link>
         <p>{comments}</p>
         <div className=' ml-3 mt-2 '>
-              <p>date</p>
+              <p>Created in</p>
         <p>{new Date(date).toLocaleDateString()}</p>
         </div>
       </div>
